@@ -1,0 +1,13 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    # 应用名称
+    name: spring-cloud-eureka-client
+
+eureka:
+  client:
+    # eureka服务器地址
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
