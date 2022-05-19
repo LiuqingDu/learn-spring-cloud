@@ -4,7 +4,17 @@ server:
 spring:
   application:
     # 应用名称
-    name: spring-cloud-eureka-client
+    name: eureka-client
+  # 配置 config server
+  cloud:
+    config:
+      # 使用发现服务寻找配置服务器
+      discovery:
+        enabled: true
+        service-id: config-server
+  # 从 cloud config 服务器中获取配置
+  config:
+    import: "optional:configserver:"
 
 eureka:
   client:
