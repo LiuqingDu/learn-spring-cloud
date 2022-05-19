@@ -1,31 +1,9 @@
 server:
   port: 8761
 
-eureka:
-  instance:
-    # 注册到eureka服务器的实例名称
-    hostName: localhost
-    # 使用IP地址注册到eureka服务器
-    prefer-ip-address: true
-  client:
-    # 是否将eureka服务注册到注册中心
-    register-with-eureka: false
-    # 是否获取注册中心的服务列表
-    fetch-registry: false
-    # eureka服务器地址
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
-
-logging:
-  level:
-    com:
-      netflix:
-        # 发现服务器的日志级别
-        discovery: OFF
-        # 注册服务器的日志级别
-        eureka: OFF
-
 spring:
   application:
     # 应用名称
-    name: spring-cloud-eureka-server
+    name: eureka-server
+  config:
+    import: optional:configserver:http://localhost:8080
